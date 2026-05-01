@@ -10,12 +10,12 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             text-align: center;
             margin: 0;
-            padding: 0;
+            padding: 20px 0; /* Telefonda üstten ve alttan biraz boşluk bırakır */
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
             min-height: 100vh;
-            overflow: hidden;
+            overflow-x: hidden; /* Sadece sağa/sola kaymayı engeller, aşağı kaydırma serbest */
             color: #4a0024;
         }
 
@@ -23,6 +23,7 @@
             width: 90%;
             max-width: 600px;
             padding: 20px;
+            margin-top: 10vh; /* İlk ekranın biraz ortada durması için */
         }
 
         /* Çiçek Animasyonu */
@@ -76,7 +77,9 @@
 
         #ikinci-ekran {
             display: none; /* Başlangıçta gizli */
+            margin-top: 20px; /* İkinci ekran için boşluk ayarı */
             animation: fadeIn 1.5s forwards;
+            padding-bottom: 50px; /* Telefonda en alta inince yazı ekrana yapışmasın diye boşluk */
         }
 
         @keyframes fadeIn {
@@ -102,6 +105,7 @@
             padding: 20px;
             border-radius: 15px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: left; /* Uzun yazılar soldan sağa hizalanınca daha rahat okunur */
         }
     </style>
 </head>
@@ -129,7 +133,6 @@
     </div>
 
     <script>
-        // Javascript kodları - İşlemleri yapan kısım
         const evetBtn = document.getElementById('evet-btn');
         const hayirBtn = document.getElementById('hayir-btn');
         const ilkEkran = document.getElementById('ilk-ekran');
@@ -138,9 +141,10 @@
 
         // Evet butonuna tıklanınca olacaklar
         evetBtn.addEventListener('click', function() {
-            ilkEkran.style.display = 'none'; // İlk ekranı gizle
-            ikinciEkran.style.display = 'block'; // İkinci ekranı göster
-            sarki.play(); // Şarkıyı başlat
+            ilkEkran.style.display = 'none'; 
+            ikinciEkran.style.display = 'block'; 
+            sarki.play(); 
+            window.scrollTo(0, 0); // İkinci ekrana geçince sayfayı en başa kaydırır
         });
 
         // Hayır butonuna tıklanınca olacaklar
