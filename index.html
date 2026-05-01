@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sürpriz! 🤍</title>
+    <style>
+        body {
+            background-color: #ffe6f2; /* Uçuk tatlı bir pembe arka plan */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+            color: #4a0024;
+        }
+
+        #ilk-ekran, #ikinci-ekran {
+            width: 90%;
+            max-width: 600px;
+            padding: 20px;
+        }
+
+        /* Çiçek Animasyonu */
+        .cicek {
+            font-size: 80px;
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(100px);
+            animation: asagidanGel 2s forwards ease-out;
+        }
+
+        @keyframes asagidanGel {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 30px;
+            animation: asagidanGel 2.5s forwards ease-out;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        /* Buton Tasarımları */
+        .butonlar {
+            opacity: 0;
+            animation: asagidanGel 3s forwards ease-out;
+            transform: translateY(30px);
+        }
+
+        button {
+            background-color: #ff4d94;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 18px;
+            border-radius: 30px;
+            cursor: pointer;
+            margin: 10px;
+            transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(255, 77, 148, 0.4);
+        }
+
+        button:hover {
+            background-color: #e6005c;
+            transform: scale(1.1);
+        }
+
+        #ikinci-ekran {
+            display: none; /* Başlangıçta gizli */
+            animation: fadeIn 1.5s forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Fotoğraf Ayarı */
+        img {
+            width: 100%;
+            max-width: 350px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            margin-bottom: 20px;
+            border: 5px solid white;
+        }
+
+        /* Yazı Ayarı */
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Arka Plan Şarkısı -->
+    <audio id="sarki" src="sarki.mp3" loop></audio>
+
+    <!-- 1. EKRAN: Soru ve Çiçek -->
+    <div id="ilk-ekran">
+        <div class="cicek">🌷</div>
+        <h1>Kainatın en güzel kızını görmek ister misin?</h1>
+        <div class="butonlar">
+            <button id="evet-btn">Evet</button>
+            <button id="hayir-btn">Hayır</button>
+        </div>
+    </div>
+
+    <!-- 2. EKRAN: Fotoğraf ve Senin Yazın -->
+    <div id="ikinci-ekran">
+        <img src="foto.jpg" alt="Dünyanın En Güzel Kızı">
+        <p>
+            Seni üzmekten kırmaktan o kadar çok korkuyorum ki seni kaybetmek istemediğim için seni çok çok seviyorum iyiki benimsin bu siteyi neden yaptın dersen ya sen aşırı güzelsin ya bakmaya kıyamıcak kadar evet benim güzelimsin seninle ileride güzel şeyler yaşamak isterim ki bunuda hissettiriyorum bence ve gerçekten çok güzelsin ha bu arada mükkemmelsin bide aşırı güzelsin bu siteyi neden yaptın dersende bilmiyorum senin için birşeylerle uğraşmak senin için çabalamak hoşuma gidiyor çok güzel bir kızsın evet of seni seviyorum komocaaan hemde herkes sana karşıysa bende herkese karşıyım hep yanında olucam hep seni sevicem sen ve ben herşeyin üstesinden geliriz ailelerimizde dahil Günaydın Prenses 😊🤍
+        </p>
+    </div>
+
+    <script>
+        // Javascript kodları - İşlemleri yapan kısım
+        const evetBtn = document.getElementById('evet-btn');
+        const hayirBtn = document.getElementById('hayir-btn');
+        const ilkEkran = document.getElementById('ilk-ekran');
+        const ikinciEkran = document.getElementById('ikinci-ekran');
+        const sarki = document.getElementById('sarki');
+
+        // Evet butonuna tıklanınca olacaklar
+        evetBtn.addEventListener('click', function() {
+            ilkEkran.style.display = 'none'; // İlk ekranı gizle
+            ikinciEkran.style.display = 'block'; // İkinci ekranı göster
+            sarki.play(); // Şarkıyı başlat
+        });
+
+        // Hayır butonuna tıklanınca olacaklar
+        hayirBtn.addEventListener('click', function() {
+            alert("Buna izin veremem! O 'Evet' butonuna basılacak :)");
+        });
+    </script>
+
+</body>
+</html>
